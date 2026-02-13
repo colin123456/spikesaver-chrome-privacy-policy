@@ -39,12 +39,18 @@
       margin-bottom: 0.5rem;
       color: #222;
     }
+    h3 {
+      font-size: 1rem;
+      margin-top: 1.25rem;
+      margin-bottom: 0.4rem;
+      color: #333;
+    }
     p, li {
       font-size: 0.95rem;
       color: #444;
       margin-bottom: 0.75rem;
     }
-    ul {
+    ul, ol {
       padding-left: 1.5rem;
       margin-bottom: 1rem;
     }
@@ -57,6 +63,14 @@
       margin: 1.5rem 0;
     }
     .highlight p { margin-bottom: 0; color: #2e7d32; }
+    .detail {
+      font-size: 0.88rem;
+      color: #666;
+      margin-top: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .not-list li { list-style-type: "✗  "; }
+    .do-list li { list-style-type: "✓  "; }
     footer {
       margin-top: 2.5rem;
       padding-top: 1.5rem;
@@ -66,63 +80,212 @@
     }
     a { color: #1976d2; text-decoration: none; }
     a:hover { text-decoration: underline; }
+    code {
+      background: #f5f5f5;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.88rem;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Privacy Policy</h1>
-    <p class="subtitle">SpikeSaver for Tesco &mdash; Chrome Extension &bull; Last updated: 6 February 2025</p>
+    <p class="subtitle">SpikeSaver for Tesco &mdash; Chrome Extension &bull; Version 5.0.0 &bull; Last updated: 11 February 2026</p>
 
     <div class="highlight">
-      <p><strong>Summary:</strong> SpikeSaver does not collect, transmit, or share any personal data. All information stays on your device.</p>
+      <p><strong>Our Core Principle &mdash; Privacy First:</strong> SpikeSaver stores all your data locally on your device and never transmits any personal information to external servers. We do not collect, store, or share any personally identifiable information.</p>
     </div>
 
-    <h2>What SpikeSaver Does</h2>
-    <p>SpikeSaver is a browser extension that analyses nutrition information displayed on Tesco.com product pages. It scores products against health goals you configure, highlights allergens, and provides shopping recommendations &mdash; all within your browser.</p>
+    <h2>Introduction</h2>
+    <p>SpikeSaver (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;the extension&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how SpikeSaver handles your information when you use our Chrome extension for nutrition analysis on Tesco product pages.</p>
 
-    <h2>Data We Collect</h2>
-    <p><strong>None.</strong> SpikeSaver does not collect, store, or transmit any personal information to external servers. There are no accounts, no analytics, no tracking pixels, and no third-party services.</p>
-
-    <h2>Data Stored Locally</h2>
-    <p>SpikeSaver uses your browser's built-in storage (<code>chrome.storage.local</code>) to save:</p>
-    <ul>
-      <li>Your health goals and dietary preferences (configured during setup)</li>
-      <li>Allergen alert settings</li>
-      <li>A count of products analysed (for the "Products Analysed Today" counter)</li>
-      <li>Extension settings and wizard completion status</li>
+    <h2>Information We DO NOT Collect</h2>
+    <p>SpikeSaver <strong>does not</strong> collect, store, or transmit:</p>
+    <ul class="not-list">
+      <li>Personal identification information (name, email, address)</li>
+      <li>Browsing history or browsing patterns</li>
+      <li>Product search queries or purchase history</li>
+      <li>IP addresses or location data</li>
+      <li>Device information or browser fingerprints</li>
+      <li>Analytics or tracking data</li>
+      <li>Cookies or tracking technologies</li>
+      <li>Any data to external servers</li>
     </ul>
-    <p>This data never leaves your device. You can clear it at any time by removing the extension or clearing extension data in Chrome settings.</p>
 
-    <h2>Website Access</h2>
-    <p>SpikeSaver requires access to <code>www.tesco.com</code> to read product nutrition information displayed on the page. It does not:</p>
+    <h2>Information Stored Locally</h2>
+    <p>SpikeSaver stores the following information <strong>locally on your device only</strong> using Chrome&rsquo;s Storage API:</p>
+
+    <h3>1. User Preferences</h3>
     <ul>
-      <li>Access any other websites</li>
-      <li>Read or modify your Tesco account information</li>
-      <li>Access your basket, payment details, or order history</li>
-      <li>Inject advertising or affiliate links</li>
+      <li><strong>Nutrition Goals</strong>: Your selected goal preset (Balanced, Low-Sugar, Low-Carb, Weight Loss, Custom)</li>
+      <li><strong>Custom Macro Targets</strong>: Your personalised daily nutrition targets (if using Custom mode)</li>
+      <li><strong>Advanced Settings</strong>: Custom threshold values (if Advanced Mode is enabled)</li>
+      <li><strong>Display Preferences</strong>: Badge display settings, caching preferences</li>
+    </ul>
+    <p class="detail"><strong>Purpose:</strong> To personalise nutrition analysis according to your health goals<br>
+    <strong>Storage Location:</strong> Chrome Local Storage (on your device)<br>
+    <strong>Retention:</strong> Until you clear extension data or uninstall</p>
+
+    <h3>2. Product Cache</h3>
+    <ul>
+      <li><strong>Product ID</strong>: Tesco product identifier (numeric ID from URL)</li>
+      <li><strong>Nutrition Data</strong>: Parsed macro values (carbs, protein, fat, etc.)</li>
+      <li><strong>Cached Timestamp</strong>: Date when product was cached</li>
+    </ul>
+    <p class="detail"><strong>Purpose:</strong> To improve performance and reduce parsing overhead<br>
+    <strong>Storage Location:</strong> Chrome Local Storage (on your device)<br>
+    <strong>Retention:</strong> 24 hours, then automatically deleted</p>
+
+    <h3>3. Statistics</h3>
+    <ul>
+      <li><strong>Products Analysed Count</strong>: Total number of products analysed</li>
+      <li><strong>Daily Count</strong>: Number of products analysed today</li>
+    </ul>
+    <p class="detail"><strong>Purpose:</strong> To show you your usage statistics<br>
+    <strong>Storage Location:</strong> Chrome Local Storage (on your device)<br>
+    <strong>Retention:</strong> Until you manually reset statistics or uninstall</p>
+
+    <h2>How Your Data is Used</h2>
+    <p>All data stored by SpikeSaver remains on your device and is used exclusively for:</p>
+    <ol>
+      <li><strong>Nutrition Analysis</strong>: Comparing product macros against your personalised goals</li>
+      <li><strong>Performance</strong>: Caching products to avoid re-parsing (24h expiry)</li>
+      <li><strong>Personalisation</strong>: Remembering your goal settings across sessions</li>
+      <li><strong>Statistics</strong>: Showing you how many products you&rsquo;ve analysed</li>
+    </ol>
+    <p>Your data is <strong>never</strong>:</p>
+    <ul class="not-list">
+      <li>Sent to external servers</li>
+      <li>Shared with third parties</li>
+      <li>Used for advertising or tracking</li>
+      <li>Sold or monetised in any way</li>
     </ul>
 
     <h2>Permissions Explained</h2>
+
+    <h3>storage</h3>
+    <p><strong>Why:</strong> To save your nutrition goals, preferences, and product cache locally on your device<br>
+    <strong>What We Access:</strong> Only Chrome Local Storage API<br>
+    <strong>What We DON&rsquo;T Access:</strong> Your browsing history, passwords, or any other Chrome data</p>
+
+    <h3>activeTab</h3>
+    <p><strong>Why:</strong> To analyse nutrition information on the current Tesco product page you&rsquo;re viewing<br>
+    <strong>What We Access:</strong> Only the HTML content of Tesco product pages when you visit them<br>
+    <strong>What We DON&rsquo;T Access:</strong> Content from other websites or tabs</p>
+
+    <h3>host_permissions (tesco.com/groceries/*)</h3>
+    <p><strong>Why:</strong> To inject our content script into Tesco product pages for real-time analysis<br>
+    <strong>What We Access:</strong> Only Tesco grocery product pages<br>
+    <strong>What We DON&rsquo;T Access:</strong> Any other Tesco pages or other websites</p>
+
+    <p><strong>We request minimal permissions</strong> &mdash; only what&rsquo;s necessary for core functionality. We do not request permissions for browsing history, tabs API, web request API, cookies, geolocation, or microphone/camera.</p>
+
+    <h2>Data Security</h2>
+    <h3>Local Storage Security</h3>
     <ul>
-      <li><strong>storage</strong> &mdash; To save your preferences and settings locally on your device</li>
-      <li><strong>activeTab</strong> &mdash; To read nutrition data from the Tesco product page you are viewing</li>
-      <li><strong>host_permissions (tesco.com)</strong> &mdash; To run the nutrition analyser on Tesco grocery pages</li>
+      <li>All data is stored using Chrome&rsquo;s secure Storage API</li>
+      <li>Data is isolated to the extension and cannot be accessed by websites</li>
+      <li>Data is encrypted by Chrome&rsquo;s built-in storage encryption</li>
+      <li>No network transmission of your personal data</li>
+    </ul>
+
+    <h3>No External Servers</h3>
+    <ul>
+      <li>SpikeSaver does not connect to any external servers</li>
+      <li>No data is uploaded, synced, or backed up to the cloud</li>
+      <li>No telemetry or error reporting to external services</li>
+      <li>Complete offline functionality</li>
     </ul>
 
     <h2>Third-Party Services</h2>
-    <p>SpikeSaver does not use any third-party services, APIs, analytics tools, or advertising networks.</p>
+    <p>SpikeSaver <strong>does not</strong> use any third-party services, including:</p>
+    <ul class="not-list">
+      <li>Analytics platforms (Google Analytics, etc.)</li>
+      <li>Error tracking services (Sentry, etc.)</li>
+      <li>Advertising networks</li>
+      <li>Social media integrations</li>
+      <li>Payment processors (SpikeSaver is free)</li>
+      <li>Cloud storage or sync services</li>
+    </ul>
+    <p>The only external service you interact with is <strong>Tesco&rsquo;s website</strong>, which has its own privacy policy. SpikeSaver does not modify, intercept, or transmit your interactions with Tesco.</p>
 
-    <h2>Children's Privacy</h2>
-    <p>SpikeSaver does not knowingly collect any information from anyone, including children under the age of 13.</p>
+    <h2>Data Retention and Deletion</h2>
+
+    <h3>Automatic Deletion</h3>
+    <ul>
+      <li><strong>Product Cache</strong>: Automatically deleted after 24 hours</li>
+      <li><strong>Uninstall</strong>: All data is automatically deleted when you uninstall the extension</li>
+    </ul>
+
+    <h3>Manual Deletion</h3>
+    <p>You can delete your data at any time:</p>
+    <ol>
+      <li><strong>Clear Product Cache</strong>: Open SpikeSaver settings (click extension icon &gt; Settings) &gt; Preferences tab &gt; Click &ldquo;Clear Product Cache&rdquo;</li>
+      <li><strong>Reset Statistics</strong>: Open SpikeSaver settings &gt; Preferences tab &gt; Click &ldquo;Reset Statistics&rdquo;</li>
+      <li><strong>Delete All Extension Data</strong>: Go to <code>chrome://extensions/</code>, find SpikeSaver, click &ldquo;Remove&rdquo; &mdash; all local data is permanently deleted</li>
+    </ol>
+
+    <h2>Children&rsquo;s Privacy</h2>
+    <p>SpikeSaver does not knowingly collect any information from anyone, including children under 13. Since we don&rsquo;t collect any data at all, there is no risk to children&rsquo;s privacy.</p>
 
     <h2>Changes to This Policy</h2>
-    <p>If this policy changes, the updated version will be posted at this URL with a revised date. Since no data is collected, material changes are unlikely.</p>
+    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by:</p>
+    <ul>
+      <li>Updating the &ldquo;Last Updated&rdquo; date at the top of this policy</li>
+      <li>Posting a notice in the extension (for material changes)</li>
+      <li>Requiring acceptance before using new versions (for significant changes)</li>
+    </ul>
+    <p>Your continued use of SpikeSaver after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>Compliance</h2>
+
+    <h3>GDPR (EU General Data Protection Regulation)</h3>
+    <p>SpikeSaver is GDPR-compliant by design:</p>
+    <ul class="do-list">
+      <li>No personal data collection (no data controller/processor relationship)</li>
+      <li>No consent required (no data processing)</li>
+      <li>No data breach risk (no data stored externally)</li>
+      <li>Right to deletion (uninstall removes all data)</li>
+      <li>Data portability (all data is local to your device)</li>
+    </ul>
+
+    <h3>UK Data Protection Act 2018</h3>
+    <p>SpikeSaver complies with UK data protection laws through the same privacy-first design.</p>
+
+    <h3>California Consumer Privacy Act (CCPA)</h3>
+    <p>SpikeSaver does not collect, sell, or share personal information, making CCPA requirements inapplicable.</p>
+
+    <h2>Open Source Transparency</h2>
+    <p>SpikeSaver&rsquo;s code is available for review at <a href="https://github.com/colin123456/spikesaver-tesco">github.com/colin123456/spikesaver-tesco</a>. You can verify:</p>
+    <ul class="do-list">
+      <li>No external server connections in the code</li>
+      <li>All data storage uses Chrome Local Storage API only</li>
+      <li>No analytics or tracking libraries included</li>
+      <li>No obfuscated or hidden functionality</li>
+    </ul>
+
+    <h2>Your Rights</h2>
+    <p>Since SpikeSaver does not collect any personal data, traditional data rights (access, rectification, erasure, etc.) are not applicable. However, you always have:</p>
+    <ul class="do-list">
+      <li><strong>Full Control</strong>: All settings and data are on your device</li>
+      <li><strong>Transparency</strong>: Open source code for verification</li>
+      <li><strong>Deletion</strong>: Uninstall to remove all data instantly</li>
+      <li><strong>Privacy</strong>: Zero tracking or surveillance</li>
+    </ul>
 
     <h2>Contact</h2>
-    <p>If you have questions about this privacy policy, please open an issue on our <a href="https://github.com/colin123456/spikesaver-tesco/issues">GitHub repository</a>.</p>
+    <p>If you have questions or concerns about this Privacy Policy or how SpikeSaver handles data:</p>
+    <p><strong>GitHub Issues:</strong> <a href="https://github.com/colin123456/spikesaver-tesco/issues">github.com/colin123456/spikesaver-tesco/issues</a></p>
+    <p>For questions about Tesco&rsquo;s data practices, please refer to Tesco&rsquo;s Privacy Policy.</p>
+
+    <div class="highlight">
+      <p><strong>SpikeSaver is a privacy-first extension. Your nutrition goals and data stay on your device, always.</strong></p>
+    </div>
 
     <footer>
-      <p>&copy; 2025 SpikeSaver. This extension is not affiliated with or endorsed by Tesco.</p>
+      <p>&copy; 2026 SpikeSaver. This extension is not affiliated with or endorsed by Tesco.</p>
+      <p>Privacy Policy version 5.0.0 &bull; Last reviewed: 11 February 2026</p>
     </footer>
   </div>
 </body>
